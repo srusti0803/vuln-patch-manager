@@ -1,0 +1,26 @@
+[
+    {
+        "cve_id": "OpenPort-22",
+        "description": "Open port 22 running ssh",
+        "cvss_score": 9.0,
+        "asset": "188.166.24.138",
+        "asset_criticality": "High",
+        "patched": false
+    },
+    {
+        "cve_id": "OpenPort-80",
+        "description": "Open port 80 running http",
+        "cvss_score": 9.0,
+        "asset": "188.166.24.138",
+        "asset_criticality": "High",
+        "patched": false
+    },
+    {
+        "cve_id": "OpenPort-443",
+        "description": "Open port 443 running https",
+        "cvss_score": 9.0,
+        "asset": "188.166.24.138",
+        "asset_criticality": "High",
+        "patched": false
+    }
+]

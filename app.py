@@ -9,23 +9,25 @@ app = Flask(__name__)
 client = OpenAI()
 
 def run_nmap_scan(target_ip="127.0.0.1"):
-    nm = nmap.PortScanner()
-    nm.scan(target_ip, arguments='-sV')
-    results = []
-
-    for host in nm.all_hosts():
-        for proto in nm[host].all_protocols():
-            ports = nm[host][proto].keys()
-            for port in ports:
-                service = nm[host][proto][port]['name']
-                results.append({
-                    "cve_id": f"OpenPort-{port}",
-                    "description": f"Open port {port} running {service}",
-                    "cvss_score": 9.0,  # Set to 9.0 to ensure High priority
-                    "asset": target_ip,
-                    "asset_criticality": "High",
-                    "patched": False
-                })
+    # Instead of real nmap, return simulated data
+    results = [
+        {
+            "cve_id": "CVE-2024-9999",
+            "description": "Simulated open port 22 running ssh",
+            "cvss_score": 9.0,
+            "asset": target_ip,
+            "asset_criticality": "High",
+            "patched": False
+        },
+        {
+            "cve_id": "CVE-2024-8888",
+            "description": "Simulated open port 80 running http",
+            "cvss_score": 7.5,
+            "asset": target_ip,
+            "asset_criticality": "Medium",
+            "patched": False
+        }
+    ]
     return results
 
 def prioritize_vuln(vuln):
